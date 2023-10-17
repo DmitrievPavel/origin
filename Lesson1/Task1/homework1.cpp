@@ -43,13 +43,21 @@ int main()
     mass2[0] = arr2[size2 - 1];
     std::ofstream fout("out.txt");
     fout << size2 << std::endl;
+
     for (int i = 0; i < size2; i ++){
         fout << mass2[i] << " ";
     }
+
     fout << std::endl << size1 << std::endl;
+
     for (int i = 0; i < size1; i++) {
         fout << mass1[i] << " ";
     }
+
     fout.close();
+    delete[] arr1;
+    delete[] arr2;
+    delete[] mass1;
+    delete[] mass2;
 }
 
