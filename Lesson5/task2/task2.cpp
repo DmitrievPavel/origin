@@ -8,23 +8,12 @@ protected:
 
     int sides_count;
     std::string name;
-    int a, b, c, d, A, B, C, D;
 
 public:
 
-    Figure() {}
-
-    Figure(int a, int b, int c, int d, int A, int B, int C, int D) {
+    Figure() {
         sides_count = 0;
         name = { "Фигура:" };
-        this->a = a;
-        this->b = b;
-        this->c = c;
-        this->d = d;
-        this->A = A;
-        this->B = B;
-        this->C = C;
-        this->D = D;
     }
 
     int get_sides_count() {
@@ -33,6 +22,65 @@ public:
 
     std::string get_name() {
         return name;
+    }
+};
+
+class Triangle : public Figure {
+
+protected:
+    int a, b, c, A, B, C;
+
+public:
+
+    Triangle(int a, int b, int c, int A, int B, int C) {
+        sides_count = 3;
+        name = { "Треугольник:" };
+        this->a = a;
+        this->b = b;
+        this->c = c;
+        this->A = A;
+        this->B = B;
+        this->C = C;
+    }
+
+    int get_a() {
+        return a;
+    }
+    int get_b() {
+        return b;
+    }
+    int get_c() {
+        return c;
+    }
+    int get_A() {
+        return A;
+    }
+    int get_B() {
+        return B;
+    }
+    int get_C() {
+        return C;
+    }
+};
+
+class Quadrangle :  public Figure {
+
+protected:
+    int a, b, c, d, A, B, C, D;
+
+public:
+
+    Quadrangle(int a, int b, int c, int d, int A, int B, int C, int D) {
+        sides_count = 4;
+        name = { "Четырехугольник:" };
+        this->a = a;
+        this->b = b;
+        this->c = c;
+        this->d = d;
+        this->A = A;
+        this->B = B;
+        this->C = C;
+        this->D = D;
     }
 
     int get_a() {
@@ -58,26 +106,6 @@ public:
     }
     int get_D() {
         return D;
-    }
-};
-
-class Triangle : public Figure {
-
-public:
-
-    Triangle(int a, int b, int c, int A, int B, int C) : Figure(a, b, c, 0, A, B, C, 0) {
-        sides_count = 3;
-        name = { "Треугольник:" };
-    }
-};
-
-class Quadrangle :  public Figure {
-
-public:
-
-    Quadrangle(int a, int b, int c, int d, int A, int B, int C, int D) : Figure(a, b, c, d, A, B, C, D) {
-        sides_count = 4;
-        name = { "Четырехугольник:" };
     }
 };
 
