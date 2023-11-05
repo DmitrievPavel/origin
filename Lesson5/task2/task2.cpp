@@ -23,6 +23,8 @@ public:
     std::string get_name() {
         return name;
     }
+
+    virtual void info() {}
 };
 
 class Triangle : public Figure {
@@ -60,6 +62,11 @@ public:
     }
     int get_C() {
         return C;
+    }
+
+    void info() override {
+        std::cout << "Стороны: " << "a = " << get_a() << " b = " << get_b() << " c = " << get_c() << std::endl;
+        std::cout << "Углы: " << "A = " << get_A() << " B = " << get_B() << " C = " << get_C() << std::endl;
     }
 };
 
@@ -106,6 +113,11 @@ public:
     }
     int get_D() {
         return D;
+    }
+
+    void info() override {
+        std::cout << "Стороны: " << "a = " << get_a() << " b = " << get_b() << " c = " << get_c() << " d = " << get_d() << std::endl;
+        std::cout << "Углы: " << "A = " << get_A() << " B = " << get_B() << " C = " << get_C() << " D = " << get_D() << std::endl;
     }
 };
 
@@ -168,12 +180,7 @@ public:
 void print_info(Figure* figure) {
 
         std::cout << std::endl << figure->get_name() << std::endl;
-        std::cout << "Стороны: " << "a = " << figure->get_a() << " b = " << figure->get_b() << " c = " << figure->get_c();
-        if (figure->get_sides_count() == 3) { std::cout << std::endl; }
-        if (figure->get_sides_count() == 4) { std::cout << " d = " << figure->get_d() << std::endl; }
-        std::cout << "Углы: " << "A = " << figure->get_A() << " B = " << figure->get_B() << " C = " << figure->get_C();
-        if (figure->get_sides_count() == 3) { std::cout << std::endl; }
-        if (figure->get_sides_count() == 4) { std::cout << " D = " << figure->get_D() << std::endl; }
+        figure->info();
 
 }
 
