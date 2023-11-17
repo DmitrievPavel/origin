@@ -15,7 +15,7 @@ public:
 	}
 	
 	bool operator==(Fraction& right) {
-		if (numerator_ == right.numerator_ && denominator_ == right.denominator_) {
+		if ((numerator_ * right.denominator_) == (right.numerator_ * denominator_)) {
 			return true;
 		}
 		return false;
@@ -26,18 +26,9 @@ public:
 	}
 
 	bool operator>(Fraction& right) {
-		if (numerator_ == right.numerator_ && denominator_ < right.denominator_) {
-			return true;
-		}
-		if (denominator_ == right.denominator_ && numerator_ > right.numerator_) {
-			return true;
-		}
-		else {
-			numerator_ *= right.denominator_;
-			right.numerator_ *= denominator_;
-			if (numerator_ > right.numerator_) {
+
+		if ((numerator_ * right.denominator_) > (right.numerator_ * denominator_)){
 				return true;
-			}
 		}
 		return false;
 	}
@@ -58,7 +49,7 @@ public:
 int main()
 {
 	Fraction f1(4, 3);
-	Fraction f2(6, 11);
+	Fraction f2(8, 6);
 
 	std::cout << "f1" << ((f1 == f2) ? " == " : " not == ") << "f2" << '\n';
 	std::cout << "f1" << ((f1 != f2) ? " != " : " not != ") << "f2" << '\n';
